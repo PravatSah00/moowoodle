@@ -101,8 +101,8 @@ export default function banner() {
                                 <ul className="carousel-list">
                                     <li className="carousel-item active">
                                         <div className="woo-pro-txt-items">
-                                            <h3>Double Opt-In {' '}</h3>
-                                            <p>Experience the power of Double Opt-In for our Stock Alert Form - Guaranteed precision in every notification!{' '}</p>
+                                            <h3>Single Sign-On for Moodle™ and WordPress Login</h3>
+                                            <p>Seamlessly access Moodle™ and WordPress with a unified login system for convenience and efficiency.</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 className="woo-btn btn-red"
@@ -113,8 +113,8 @@ export default function banner() {
                                     </li>
                                     <li class="carousel-item">
                                         <div className="woo-pro-txt-items">
-                                            <h3>Your Subscription Hub{' '}</h3>
-                                            <p>Subscription Dashboard - Easily monitor and download lists of out-of-stock subscribers for seamless management.{' '}</p>
+                                            <h3>Subscription-based Revenue Generation</h3>
+                                            <p>Generate steady income by offering course subscriptions to users.</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 className="woo-btn btn-red"
@@ -125,8 +125,8 @@ export default function banner() {
                                     </li>
                                     <li class="carousel-item">
                                         <div className="woo-pro-txt-items">
-                                            <h3>Mailchimp Bridge{' '}</h3>
-                                            <p>Seamlessly link WooCommerce out-of-stock subscriptions with Mailchimp for effective marketing.{' '}</p>
+                                            <h3>Flexible Course Offerings</h3>
+                                            <p>Increase earnings by offering courses individually, in groups, or as variations.</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 className="woo-btn btn-red"
@@ -137,8 +137,8 @@ export default function banner() {
                                     </li>
                                     <li class="carousel-item">
                                         <div className="woo-pro-txt-items">
-                                            <h3>Unsubscribe Notifications{' '}</h3>
-                                            <p>User-Initiated Unsubscribe from In-Stock Notifications.{' '}</p>
+                                            <h3>Course Selection and Synchronization</h3>
+                                            <p>Easily select and synchronize courses with flexibility and precision.</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 className="woo-btn btn-red"
@@ -149,8 +149,44 @@ export default function banner() {
                                     </li>
                                     <li class="carousel-item">
                                         <div className="woo-pro-txt-items">
-                                            <h3>Ban Spam Emails {' '}</h3>
-                                            <p>Email and Domain Blacklist for Spam Prevention.{' '}</p>
+                                            <h3>Bulk Course Synchronization</h3>
+                                            <p>Synchronize courses in bulk effortlessly, saving time and streamlining operations.</p>
+                                            <a
+                                                href={appLocalizer.pro_url}
+                                                className="woo-btn btn-red"
+                                            >
+                                                View Pricing
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="carousel-item">
+                                        <div className="woo-pro-txt-items">
+                                            <h3>Seamless Access Management</h3>
+                                            <p>Effortlessly manage access to Moodle™ and WordPress platforms with a seamless integration.</p>
+                                            <a
+                                                href={appLocalizer.pro_url}
+                                                className="woo-btn btn-red"
+                                            >
+                                                View Pricing
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="carousel-item">
+                                        <div className="woo-pro-txt-items">
+                                            <h3>Customizable User Information Sync</h3>
+                                            <p>Tailor the synchronization of user information between Moodle™ and WordPress platforms according to your specific needs.</p>
+                                            <a
+                                                href={appLocalizer.pro_url}
+                                                className="woo-btn btn-red"
+                                            >
+                                                View Pricing
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="carousel-item">
+                                        <div className="woo-pro-txt-items">
+                                            <h3>Automated User Synchronization</h3>
+                                            <p>Streamline the process of synchronizing user accounts between Moodle™ and WordPress platforms with automated functionality.</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 className="woo-btn btn-red"
