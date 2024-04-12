@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { __ } from "@wordpress/i18n";
 import { useSetting } from "../../../../contexts/SettingContext";
-import Color from "../../../../assets/images/Color.jpg";
 import "./ButtonCustomizer.scss";
 const Customizer = (props) => {
   const [select, setSelect] = useState("");
