@@ -4,23 +4,23 @@ import "./support.scss";
 const questions = [
   {
     id: 1,
-    question: 'Popular Articles',
-    answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
+    question: 'Can I purchase Moodle courses from WordPress and then automatically enroll in the course?',
+    answer: 'Yes, with MooWoodle, when a user purchases a Moodle course from a WordPress site, upon successful payment, students receive an email with the Moodle course link and login access.',
   },
     {
     id: 2,
-    question: 'Fix problems & request removals',
-    answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
+    question: 'My Test Connection is showing an error, what should I do?',
+    answer: 'If there is an error in the Test Connection, it indicates a configuration issue on the Moodle end. First, ensure you have followed our documentation and configured the settings correctly. If the issue persists, review the error logs and address them. Once the Test Connection runs smoothly, the connection between Moodle and WordPress has been successfully established.',
   },
     {
     id: 3,
-    question: 'Browse the web',
-    answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
+    question: 'Can I sell Moodle courses through subscriptions?',
+    answer: 'Yes, you can sell Moodle courses through subscriptions using MooWoodle Pro.',
   },
       {
     id: 4,
-    question: 'Search on your phone or tablet',
-    answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
+    question: 'Can I sync all users from Moodle to WordPress and vice versa?',
+    answer: 'Yes, with MooWoodle Pro, you can sync all users from Moodle to WordPress and WordPress to Moodle. Real-time synchronization is also supported.',
   },
   
 ]
