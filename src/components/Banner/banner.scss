@@ -7,7 +7,6 @@ $border-color: #d4d1d9;
 
 $padding: 0.625rem;
 $container-padding: 1rem 3rem;
-$container-max-height: 12rem;
 $button-padding: 0.37rem 2.5rem;
 
 .custom-banner {
@@ -75,7 +74,6 @@ $button-padding: 0.37rem 2.5rem;
       flex-wrap: wrap;
       transition: 0.5s all ease-in-out;
       overflow: hidden;
-      max-height: $container-max-height;
 
       &:hover {
         background-size: 110% 102%;
@@ -89,6 +87,7 @@ $button-padding: 0.37rem 2.5rem;
         font-size: 1.25rem;
         font-weight: 500;
         color: $text-color;
+        line-height: normal;
       }
 
       p {
