@@ -3,112 +3,120 @@ import axios from "axios";
 import Dialog from "@mui/material/Dialog";
 import Popoup from "../PopupContent/PopupContent";
 import { getApiLink } from "../../services/apiService";
+import "./SyncNow.scss";
 
 const SyncNow = (props) => {
-    const [modelOpen, setModelOpen] = useState(false);
-    const [syncCourseStart, setSyncCourseStart] = useState(false);
-    const [syncUserStart, setSyncUserStart] = useState(false);
-    const [syncStatus, setSyncStatus] = useState([]);
-    const syncStart = useRef(false);
+  const [modelOpen, setModelOpen] = useState(false);
+  const [syncCourseStart, setSyncCourseStart] = useState(false);
+  const [syncUserStart, setSyncUserStart] = useState(false);
+  const [syncStatus, setSyncStatus] = useState([]);
+  const syncStart = useRef(false);
 
-    const fetchSyncStatus = () => {
-        axios({
-            method: "post",
-            url: getApiLink('sync-status'),
-            headers: { "X-WP-Nonce": appLocalizer.nonce },
-        }).then((response) => {
-            if ( syncStart.current ) {
-                setSyncStatus(response.data);
-                setTimeout(() => {
-                    fetchSyncStatus();
-                }, 0)
-            }
-        });
+  const fetchSyncStatus = () => {
+    axios({
+      method: "post",
+      url: getApiLink("sync-status"),
+      headers: { "X-WP-Nonce": appLocalizer.nonce },
+    }).then((response) => {
+      if (syncStart.current) {
+        setSyncStatus(response.data);
+        setTimeout(() => {
+          fetchSyncStatus();
+        }, 0);
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (syncStart) {
+      fetchSyncStatus();
+    }
+  }, [syncStart.current]);
+
+  const handleUserSync = (event) => {
+    if (!appLocalizer.pro_active) {
+      return setModelOpen(true);
+    }
+  };
+
+  const handleCourseSync = (event) => {
+    if (syncCourseStart) {
+      return;
     }
 
-    useEffect(() => {
-        if ( syncStart ) {
-            fetchSyncStatus();
-        }
-    }, [ syncStart.current ] );
+    syncStart.current = true;
+    setSyncCourseStart(true);
 
-    const handleUserSync = (event) => {
-        if ( ! appLocalizer.pro_active ) {
-            return setModelOpen(true);
-        }
-    }
+    axios({
+      method: "post",
+      url: getApiLink("sync-course"),
+      headers: { "X-WP-Nonce": appLocalizer.nonce },
+    }).then((response) => {
+      setSyncStatus(response.data);
+      setSyncCourseStart(false);
+      syncStart.current = false;
+    });
+  };
 
-    const handleCourseSync = (event) => {
-        if (syncCourseStart) {
-            return;
-        }
-
-        syncStart.current = true;
-        setSyncCourseStart(true);
-
-        axios({
-            method: "post",
-            url: getApiLink('sync-course'),
-            headers: { "X-WP-Nonce": appLocalizer.nonce },
-        }).then((response) => {
-            setSyncStatus(response.data);
-            setSyncCourseStart(false);
-            syncStart.current = false;
-        });
-    }
-
-    return (
-        <>
-            <Dialog
-                className="admin-module-popup"
-                open={modelOpen}
-                onClose={() => setModelOpen(false) }
-                aria-labelledby="form-dialog-title"
-                >
-                <span
-                    className="admin-font font-cross"
-                    onClick={() => setModelOpen(false) }
-                ></span>
-                <Popoup />
-            </Dialog>
-            <div>
-                <button
-                    onClick={handleUserSync}
-                >
-                    All User
-                </button>
-                <div className="">
-
-                </div>
+  return (
+    <>
+      <Dialog
+        className="admin-module-popup"
+        open={modelOpen}
+        onClose={() => setModelOpen(false)}
+        aria-labelledby="form-dialog-title"
+      >
+        <span
+          className="admin-font font-cross"
+          onClick={() => setModelOpen(false)}
+        ></span>
+        <Popoup />
+      </Dialog>
+      <div className="section-synchronize-now">
+        <div className="button-section">
+            <button className="synchronize-now-button" onClick={handleUserSync}>
+                Synchronize All User
+            </button>
+            <div class="loader">
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
             </div>
-            <div>
-                <button
-                    onClick={handleCourseSync}
-                >
-                    All Course
-                </button>
-                <div className="">
+        </div>
 
-                </div>
+        <div className="button-section">
+            <button className="synchronize-now-button" onClick={handleCourseSync}>
+                Synchronize All Course
+            </button>
+            <div class="loader">
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
             </div>
-            {
-                syncStatus.length && 
-                <div>
-                    {
-                        syncStatus.map((status) => {
-                            {console.log(status)}
-                            return (
-                                <>
-                                    <h4>{status.action}</h4>
-                                    <p> { status.current / status.total * 100 }</p>
-                                </>
-                            );
-                        })
-                    }
-                </div>
-            }
-        </>
-    )
-}
+        </div>
+
+        {
+                    syncStatus.length > 0 && 
+                    <>
+                        {
+                            syncStatus.map((status) => {
+                                {console.log(status)}
+                                return (
+                                    <>
+                                        <div className="details-status-row">
+                                            {status.action}
+                                            <span className="status-icons"><i class="admin-font font-icon-yes"></i></span>
+                                            <span style={{width: `${ status.current / status.total * 100 }%`}} className="progress-bar"></span>
+                                        </div>
+                                    </>
+                                );
+                            })
+                        }
+                    </>
+                }
+      </div>
+    </>
+  );
+};
 
 export default SyncNow;

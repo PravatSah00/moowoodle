@@ -141,6 +141,7 @@ class Util {
 		$sync_status[ $current_action ][ 'current' ]++;
 
 		set_transient( 'moowoodle_sync_status',  $sync_status, 3600 );
+		sleep(2);
 	}
 
 	/**

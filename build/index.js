@@ -16616,10 +16616,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Inputs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Inputs */ "./src/components/AdminLibrary/Inputs/index.js");
 /* harmony import */ var _contexts_SettingContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../contexts/SettingContext */ "./src/contexts/SettingContext.jsx");
 /* harmony import */ var _services_apiService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/apiService */ "./src/services/apiService.js");
-/* harmony import */ var _mui_material_Dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material/Dialog */ "./node_modules/@mui/material/Dialog/Dialog.js");
+/* harmony import */ var _mui_material_Dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/Dialog */ "./node_modules/@mui/material/Dialog/Dialog.js");
 /* harmony import */ var _PopupContent_PopupContent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../PopupContent/PopupContent */ "./src/components/PopupContent/PopupContent.jsx");
 /* harmony import */ var _Inputs_Special_FormCustomizer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Inputs/Special/FormCustomizer */ "./src/components/AdminLibrary/Inputs/Special/FormCustomizer.jsx");
 /* harmony import */ var _ConnectButton_ConnectButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../ConnectButton/ConnectButton */ "./src/components/ConnectButton/ConnectButton.jsx");
+/* harmony import */ var _Log_Log__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Log/Log */ "./src/components/Log/Log.jsx");
 
 
 
@@ -16629,6 +16630,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import services function
+
 
 
 
@@ -17209,6 +17211,9 @@ const DynamicForm = props => {
         case "testconnection":
           input = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ConnectButton_ConnectButton__WEBPACK_IMPORTED_MODULE_7__["default"], null);
           break;
+        case "log":
+          input = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Log_Log__WEBPACK_IMPORTED_MODULE_8__["default"], null);
+          break;
         case "checkbox-default":
           input = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Inputs__WEBPACK_IMPORTED_MODULE_2__["default"].MultiCheckBox, {
             wrapperClass: "checkbox-list-side-by-side",
@@ -17218,7 +17223,7 @@ const DynamicForm = props => {
             inputWrapperClass: "toggle-checkbox-header",
             inputInnerWrapperClass: "default-checkbox",
             inputClass: inputField.class,
-            hintOuterClass: "",
+            hintOuterClass: "checkbox-description",
             hintInnerClass: "hover-tooltip",
             idPrefix: "toggle-switch",
             selectDeselect: inputField.select_deselect,
@@ -17259,7 +17264,7 @@ const DynamicForm = props => {
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "dynamic-fields-wrapper"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material_Dialog__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material_Dialog__WEBPACK_IMPORTED_MODULE_9__["default"], {
     className: "admin-module-popup",
     open: modelOpen,
     onClose: handleModelClose,
@@ -17818,6 +17823,8 @@ const SelectInput = props => {
   });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: props.wrapperClass
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "select-input-section"
   }, props.selectDeselect && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: props.selectDeselectClass,
     onClick: e => {
@@ -17836,7 +17843,7 @@ const SelectInput = props => {
     isMulti: props.type === 'multi-select'
   }), props.proSetting && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "admin-pro-tag"
-  }, "pro"), props.description && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, "pro")), props.description && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: props.descClass,
     dangerouslySetInnerHTML: {
       __html: props.description
@@ -18976,22 +18983,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Support = () => {
-  const url = "https://www.youtube.com/embed/cgfeZH5z2dM?si=3zjG13RDOSiX2m1b";
+  const url = "https://www.youtube.com/embed/fL7wPVYopTU?si=BZeP1WwCxBSSoM7h";
   const [faqs, setFaqs] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
-    question: "Why am I not receiving any emails when a customer subscribes for an out-of-stock product?",
-    answer: "Please install a plugin like Email Log and perform a test subscription.",
+    question: "How do I resolve a timeout error when WordPress connects with Moodle?",
+    answer: "When encountering a timeout error during WordPress-Moodle communication, adjust timeout settings in your server configuration to accommodate longer communication durations.",
     open: true
   }, {
-    question: "Why is the out-of-stock form not appearing?",
-    answer: "There might be a theme conflict issue. To troubleshoot, switch to a default theme like Twenty Twenty-Four and check if the form appears.",
+    question: "How can I troubleshoot connection errors during Test connection?",
+    answer: "Navigate to the \"Log\" menu, where you can use the \"Log\" feature to troubleshoot connectivity issues between your store and Moodle. This tool helps identify necessary changes for resolution.",
     open: false
   }, {
-    question: "Does Product Stock Manager & Notifier support product variations?",
-    answer: "Yes, product variations are fully supported and editable from the Inventory Manager. Product Stock Manager & Notifier handles variable products with ease and uses an expandable feature to make managing variations clear and straightforward.",
+    question: "Why aren't my customers receiving enrollment emails?",
+    answer: "Install a plugin like Email Log to check if New Enrollment emails are logged. If logged, your email functionality is working fine; if not, contact your email server administrator for assistance.",
     open: false
   }, {
-    question: "Do you support Google reCaptcha for the out-of-stock form?",
-    answer: 'Yes, <a href="https://multivendorx.com/woocommerce-product-stock-manager-notifier-pro/?utm_source=WordPressAdmin&utm_medium=PluginSettings&utm_campaign=productsstockmanager" target="_blank">Product Stock Manager & Notifier Pro</a> has support for reCaptcha.',
+    question: "Can I set course expiration dates using MooWoodle?",
+    answer: 'Course-related functionalities, including setting expiration dates, are managed within Moodle itself; MooWoodle does not control these aspects.',
     open: false
   }]);
   const toggleFAQ = index => {
@@ -19012,7 +19019,7 @@ const Support = () => {
     className: "support-header-wrapper"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
     className: "support-heading"
-  }, "Thank you for using Product Stock Manager & Notifier for WooCommerce"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, "Thank you for using MooWoodle"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "support-subheading"
   }, "We want to help you enjoy a wonderful experience with all of our products.")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "video-faq-wrapper"
@@ -19106,17 +19113,17 @@ const Tabs = props => {
     title: "Get in touch with Support",
     icon: "mail",
     description: "Reach out to the support team for assistance or guidance.",
-    link: "https://multivendorx.com/contact-us/?utm_source=WordPressAdmin&utm_medium=PluginSettings&utm_campaign=productsstockmanager"
+    link: "https://dualcube.com/forums/?utm_source=wordpress.org&utm_medium=freelandingpage&utm_campaign=MooWoodleFree"
   }, {
     title: "Explore Documentation",
     icon: "submission-message",
     description: "Understand the plugin and its settings.",
-    link: "https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=WordPressAdmin&utm_medium=PluginSettings&utm_campaign=productsstockmanager"
+    link: "https://dualcube.com/knowledgebase/?utm_source=wordpress.org&utm_medium=freelandingpage&utm_campaign=MooWoodleFree"
   }, {
     title: "Contribute Here",
     icon: "support",
     description: "To participation in product enhancement.",
-    link: "https://github.com/multivendorx/woocommerce-product-stock-alert/issues"
+    link: "https://github.com/dualcube/moowoodle/issues"
   }];
   const showHideMenu = tab => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
@@ -19849,6 +19856,57 @@ function Course() {
 
 /***/ }),
 
+/***/ "./src/components/Log/Log.jsx":
+/*!************************************!*\
+  !*** ./src/components/Log/Log.jsx ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Log_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Log.scss */ "./src/components/Log/Log.scss");
+
+
+
+const Log = props => {
+  const handleDownloadLog = event => {
+    console.log("handle download log");
+  };
+  const handleClearLog = event => {
+    console.log("handle clear log");
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "LOG"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "button-section"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: handleDownloadLog,
+    class: "download-btn"
+  }, "Download"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "button-clear",
+    onClick: handleClearLog
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "text"
+  }, "Clear"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    class: "icon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "log-container-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null)));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Log);
+
+/***/ }),
+
 /***/ "./src/components/PopupContent/PopupContent.jsx":
 /*!******************************************************!*\
   !*** ./src/components/PopupContent/PopupContent.jsx ***!
@@ -19994,10 +20052,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _mui_material_Dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/Dialog */ "./node_modules/@mui/material/Dialog/Dialog.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _mui_material_Dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material/Dialog */ "./node_modules/@mui/material/Dialog/Dialog.js");
 /* harmony import */ var _PopupContent_PopupContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../PopupContent/PopupContent */ "./src/components/PopupContent/PopupContent.jsx");
 /* harmony import */ var _services_apiService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/apiService */ "./src/services/apiService.js");
+/* harmony import */ var _SyncNow_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SyncNow.scss */ "./src/components/SyncNow/SyncNow.scss");
+
 
 
 
@@ -20011,9 +20071,9 @@ const SyncNow = props => {
   const [syncStatus, setSyncStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const syncStart = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
   const fetchSyncStatus = () => {
-    (0,axios__WEBPACK_IMPORTED_MODULE_3__["default"])({
+    (0,axios__WEBPACK_IMPORTED_MODULE_4__["default"])({
       method: "post",
-      url: (0,_services_apiService__WEBPACK_IMPORTED_MODULE_2__.getApiLink)('sync-status'),
+      url: (0,_services_apiService__WEBPACK_IMPORTED_MODULE_2__.getApiLink)("sync-status"),
       headers: {
         "X-WP-Nonce": appLocalizer.nonce
       }
@@ -20042,9 +20102,9 @@ const SyncNow = props => {
     }
     syncStart.current = true;
     setSyncCourseStart(true);
-    (0,axios__WEBPACK_IMPORTED_MODULE_3__["default"])({
+    (0,axios__WEBPACK_IMPORTED_MODULE_4__["default"])({
       method: "post",
-      url: (0,_services_apiService__WEBPACK_IMPORTED_MODULE_2__.getApiLink)('sync-course'),
+      url: (0,_services_apiService__WEBPACK_IMPORTED_MODULE_2__.getApiLink)("sync-course"),
       headers: {
         "X-WP-Nonce": appLocalizer.nonce
       }
@@ -20054,7 +20114,7 @@ const SyncNow = props => {
       syncStart.current = false;
     });
   };
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material_Dialog__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material_Dialog__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "admin-module-popup",
     open: modelOpen,
     onClose: () => setModelOpen(false),
@@ -20062,20 +20122,51 @@ const SyncNow = props => {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "admin-font font-cross",
     onClick: () => setModelOpen(false)
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PopupContent_PopupContent__WEBPACK_IMPORTED_MODULE_1__["default"], null)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PopupContent_PopupContent__WEBPACK_IMPORTED_MODULE_1__["default"], null)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "section-synchronize-now"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "button-section"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "synchronize-now-button",
     onClick: handleUserSync
-  }, "All User"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: ""
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, "Synchronize All User"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "loader"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "three-body__dot"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "three-body__dot"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "three-body__dot"
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "button-section"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "synchronize-now-button",
     onClick: handleCourseSync
-  }, "All Course"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: ""
-  })), syncStatus.length && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, syncStatus.map(status => {
+  }, "Synchronize All Course"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "loader"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "three-body__dot"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "three-body__dot"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "three-body__dot"
+  }))), syncStatus.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, syncStatus.map(status => {
     {
       console.log(status);
     }
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, status.action), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " ", status.current / status.total * 100));
-  })));
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "details-status-row"
+    }, status.action, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "status-icons"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "admin-font font-icon-yes"
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      style: {
+        width: `${status.current / status.total * 100}%`
+      },
+      className: "progress-bar"
+    })));
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SyncNow);
 
@@ -20456,8 +20547,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   id: "connection",
   priority: 10,
-  name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Connection Settings", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Configure parameters for connecting Moodle with WordPress", 'moowoodle'),
+  name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("General", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Configure Moodle connection with WordPress", 'moowoodle'),
   icon: "font-mail",
   submitUrl: "save-moowoodle-setting",
   modal: [{
@@ -20502,8 +20593,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   id: "display",
   priority: 20,
-  name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Display Settings", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Display Settings", 'moowoodle'),
+  name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Course Information Display", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Manage learner access to course information", 'moowoodle'),
   icon: "font-mail",
   submitUrl: "save-moowoodle-setting",
   modal: [{
@@ -20553,6 +20644,7 @@ __webpack_require__.r(__webpack_exports__);
   name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Log", "moowoodle"),
   desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Advance log", "moowoodle"),
   icon: 'font-support',
+  submitUrl: "save-moowoodle-setting",
   modal: [{
     key: "moowoodle_adv_log",
     type: "checkbox",
@@ -20560,12 +20652,16 @@ __webpack_require__.r(__webpack_exports__);
     desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('These setting will record all advanced error informations. Please don\'t Enable it if not required, because it will create a large log file.', 'moowoodle'),
     options: [{
       key: "moowoodle_adv_log",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Enable', 'moowoodle'),
       value: "moowoodle_adv_log"
     }]
   }, {
     key: "moowoodle_adv_log",
-    type: "log"
+    type: "log",
+    classes: "log-section",
+    dependent: {
+      key: "moowoodle_adv_log",
+      set: true
+    }
   }]
 });
 
@@ -20589,7 +20685,7 @@ __webpack_require__.r(__webpack_exports__);
   id: "notification",
   priority: 40,
   name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Notification ", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Notification ", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Customize New User email content", 'moowoodle'),
   icon: "font-mail",
   submitUrl: "save-moowoodle-setting",
   proDependent: true,
@@ -20626,7 +20722,7 @@ __webpack_require__.r(__webpack_exports__);
   id: "sso",
   priority: 30,
   name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Single Sing On", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Single Sing On", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Manage seamless login and logout synchronization ", 'moowoodle'),
   icon: "font-mail",
   submitUrl: "save-moowoodle-setting",
   proDependent: true,
@@ -20694,7 +20790,7 @@ __webpack_require__.r(__webpack_exports__);
   id: "sync_now",
   priority: 30,
   name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Synchronize Now", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Synchrinize now", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Moodle to WordPress user and course sync", 'moowoodle'),
   icon: "font-mail",
   modal: []
 });
@@ -20716,10 +20812,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  id: "synchronize-shcedule-course",
+  id: "synchronize-schedule-course",
   priority: 30,
   name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Course", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Specify the course synchronization direction and schedule interval.", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Control course sync direction and schedule interval", 'moowoodle'),
   icon: "font-mail",
   submitUrl: "save-moowoodle-setting",
   proDependent: true,
@@ -20807,10 +20903,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  id: "synchronization-shcedule",
+  id: "synchronization-schedule",
   priority: 20,
-  name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Synchronization Shcedule", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Synchronization Shcedule", 'moowoodle'),
+  name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Synchronization Schedule", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Synchronization Schedule", 'moowoodle'),
   icon: "font-settings"
 });
 
@@ -20831,10 +20927,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  id: "synchronize-shcedule-user",
+  id: "synchronize-schedule-user",
   priority: 25,
   name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("User", 'moowoodle'),
-  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Admins can select user sync direction and schedule interval for user synchronization.", 'moowoodle'),
+  desc: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Control user sync direction and schedule interval.", 'moowoodle'),
   icon: "font-mail",
   submitUrl: "save-moowoodle-setting",
   proDependent: true,
@@ -22059,10 +22155,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/components/Log/Log.scss":
+/*!*************************************!*\
+  !*** ./src/components/Log/Log.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/components/PopupContent/popupContent.scss":
 /*!*******************************************************!*\
   !*** ./src/components/PopupContent/popupContent.scss ***!
   \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/components/SyncNow/SyncNow.scss":
+/*!*********************************************!*\
+  !*** ./src/components/SyncNow/SyncNow.scss ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
