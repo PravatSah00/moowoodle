@@ -2,17 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { sendApiResponse, getApiLink } from "../../services/apiService";
 import './ConnectButton.scss';
 import { Link } from "react-router-dom";
-
 const ConnectButton = (props) => {
     const { __ } = wp.i18n;
-
     const connectTaskStarted = useRef(false);
     const additionalData = useRef({});
     const taskNumber = useRef(0);
     const [loading, setLoading] = useState(false);
     const [taskSequence, setTaskSequence] = useState([]);
     const [testStatus, setTestStatus] = useState('');
-
     // Sleep for a given time.
     const sleep = (time) => {
         return new Promise((resolve, reject) => {
@@ -21,7 +18,6 @@ const ConnectButton = (props) => {
             }, time)
         });
     }
-
     // Sequence task
     const tasks = [
         {
@@ -30,66 +26,58 @@ const ConnectButton = (props) => {
         },
         {
             'action': 'get_course',
-            'message': __('Courses Fetch', 'moowoodle'),
+            'message': __('Fetching courses', 'moowoodle'),
             'cache': 'course_id',
         },
         {
             'action': 'get_catagory',
-            'message': __('Catagory Fetch', 'moowoodle'),
+            'message': __('Fetching catagories', 'moowoodle'),
         },
         {
             'action': 'create_user',
-            'message': __('User Creation', 'moowoodle'),
+            'message': __('Creating a test user', 'moowoodle'),
         },
         {
             'action': 'get_user',
-            'message': __('User Fetch', 'moowoodle'),
+            'message': __('Fetching user details', 'moowoodle'),
             'cache': 'user_id',
         },
         {
             'action': 'update_user',
-            'message': __('User Update', 'moowoodle'),
+            'message': __('Updating user details', 'moowoodle'),
         },
         {
             'action': 'enroll_user',
-            'message': __('User Enroll', 'moowoodle'),
+            'message': __('Enrolling user into a course', 'moowoodle'),
         },
         {
             'action': 'unenroll_user',
-            'message': __('User Unenroll', 'moowoodle'),
+            'message': __('Unenrolling user from the course', 'moowoodle'),
         },
         {
             'action': 'delete_user',
-            'message': __('User Remove', 'moowoodle'),
+            'message': __('Removing user from Moodle', 'moowoodle'),
         }
     ];
-
     const startConnectionTask = async () => {
         // Connection task is already running
         if (connectTaskStarted.current) {
             return;
         }
-
         connectTaskStarted.current = true;
         setLoading(true);
-
         setTaskSequence([]);
-
         await doSequencialTask();
-
         connectTaskStarted.current = false;
         setLoading(false);
     }
-
     const doSequencialTask = async () => {
         // There is no task to display
         if (taskNumber.current >= tasks.length) {
             setTestStatus('Test Successful');
             return;
         }
-
         const currentTask = tasks[taskNumber.current];
-
         // Set the task sequence to current task.
         setTaskSequence((taskes) => {
             return [
@@ -101,9 +89,7 @@ const ConnectButton = (props) => {
                 }
             ];
         });
-
         await sleep(2500);
-
         const response = await sendApiResponse(
             getApiLink('test-connection'),
             {
@@ -111,14 +97,11 @@ const ConnectButton = (props) => {
                 ...additionalData.current,
             }
         );
-
         // Evelute task status
         let taskStatus = 'success';
-
         // Collect course id
         if (currentTask.cache === 'course_id') {
             const validCourse = response?.courses?.[1];
-
             if (!validCourse) {
                 taskStatus = 'failed';
             } else {
@@ -128,7 +111,6 @@ const ConnectButton = (props) => {
         // Collect user id
         else if (currentTask.cache === 'user_id') {
             const validUser = response?.data?.users?.[0];
-
             if (!validUser) {
                 taskStatus = 'failed';
             } else {
@@ -139,26 +121,21 @@ const ConnectButton = (props) => {
         else if (!response.success) {
             taskStatus = 'failed';
         }
-
         // Update task status
         setTaskSequence((tasks) => {
             const updatedTask = [...tasks];
             updatedTask[updatedTask.length - 1]['status'] = taskStatus;
             return updatedTask;
         });
-
         // If task status is not success exist from task sequence
         if (taskStatus === 'failed') {
             setTestStatus('Failed');
             return;
         }
-
         taskNumber.current++;
-
         // Call next task recursively
         await doSequencialTask();
     }
-
     return (
         <div className="connection-test-wrapper">
             <div className="section-connection-test">
@@ -200,11 +177,10 @@ const ConnectButton = (props) => {
                                 Test connection failed. Check further details in <Link className="errorlog-link" to={'?page=moowoodle#&tab=settings&sub-tab=log'}>error log</Link>.
                             </p>
                         )
-                        : 'Test connection successful'}
+                        : 'Congratulations! Your "Test connection" is successful'}
                 </div>
             }
         </div>
     );
 }
-
 export default ConnectButton;
