@@ -247,3 +247,39 @@ $color-active: #65438f;
     position: relative;
   }
 }
+
+@media only screen and (max-width: 31.25rem) {
+  .course-container-wrapper {
+    .rdt_Table {
+      .rdt_TableRow {
+        .rdt_TableCell {
+          &:nth-child(2) {
+            min-width: 10rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 85.375rem) {
+  .course-container-wrapper {
+    .rdt_Table {
+      .rdt_TableRow {
+        .rdt_TableCell {
+          &:nth-child(2) {
+            min-width: 10rem !important;
+          }
+
+          &:nth-child(5) {
+            min-width: 100% !important; // To overwrite default table css
+          }
+
+          &:nth-child(6) {
+            min-width: 100% !important; // To overwrite default table css
+          }
+        }
+      }
+    }
+  }
+}

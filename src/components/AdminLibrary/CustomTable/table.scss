@@ -275,10 +275,33 @@ $color-active: #65438f;
         background: $body-background;
       }
 
+
+      &:has(.rdt_TableCell .table-row-custom .action-section) {
+
+        .rdt_TableCell:first-child {
+          &:has(>input) {
+            align-items: center;
+          }
+        }
+
+        .rdt_TableCell .table-row-custom {
+          padding: 0.5rem 0;
+
+          &:has(.action-section) {
+            padding: 0;
+
+            .action-section {
+              padding: 0.5rem 0;
+            }
+          }
+        }
+
+      }
+
       .rdt_TableCell {
-        font-size: 0.85rem;
+        font-size: 0.875rem;
+        align-items: flex-start;
         padding: 0.313rem 0.5rem;
-        font-size: 0.95rem;
 
         &:first-child {
           min-width: 2.5rem;
@@ -314,7 +337,7 @@ $color-active: #65438f;
 
         .table-row-custom {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           justify-content: flex-start;
           gap: 0.5rem;
 
@@ -341,7 +364,6 @@ $color-active: #65438f;
               display: flex;
               flex-direction: column;
               align-items: flex-start;
-              padding: 0.5rem 0;
               gap: 0.25rem;
 
               &:hover {
@@ -357,8 +379,9 @@ $color-active: #65438f;
                 transition: all 0.3s linear;
                 align-items: flex-start;
                 justify-content: flex-start;
-                
-                button, a {
+
+                button,
+                a {
                   background: transparent;
                   font-size: 0.75rem;
                   font-weight: 500;
