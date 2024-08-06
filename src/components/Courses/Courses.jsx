@@ -75,9 +75,9 @@ export default function Course() {
      * @param {*} filterData 
      */
     const requestApiForData = (rowsPerPage, currentPage, filterData = {}) => {
-        
+
         // If serch action or search text fields any one of is missing then do nothing 
-        if ( Boolean( filterData?.searchAction ) ^ Boolean( filterData?.searchCourseField ) ) {
+        if (Boolean(filterData?.searchAction) ^ Boolean(filterData?.searchCourseField)) {
             return;
         }
 
@@ -388,7 +388,7 @@ export default function Course() {
                                 onChange={(e) => updateFilter(e.target.name, e.target.value)}
                                 value={filterValue || ""}
                             >
-                                <option value="" style={{textAlign:'center'}}>-- Select --</option>
+                                <option value="">-- All --</option>
                                 <option value="course">Course</option>
                                 <option value="shortname">Short name</option>
                             </select>

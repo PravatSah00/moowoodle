@@ -19,7 +19,7 @@ const SyncNow = (props) => {
   useEffect(() => {
     fetchSyncStatus();
   }, []);
-  
+
   /**
    * Function for fetch sync status.
    */
@@ -93,7 +93,7 @@ const SyncNow = (props) => {
         )}
       </div>
 
-      {syncStarted && <p className="sync-process">Synchronization started please wait.</p>}
+      {syncStarted && <p className="sync-process">Synchronization has started. Please wait.</p>}
 
       {/* Render description */}
       <p className="btn-description" dangerouslySetInnerHTML={{ __html: description }}></p>

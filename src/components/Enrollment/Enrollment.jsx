@@ -96,7 +96,7 @@ const Enrollment = () => {
 
 	const [selectedRange, setSelectedRange] = useState([
 		{
-			startDate: null,
+			startDate: new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000),
 			endDate: new Date(),
 			key: 'selection'
 		}
@@ -136,10 +136,10 @@ const Enrollment = () => {
 	const requestApiForData = (rowsPerPage, currentPage, filterData = {}) => {
 
 		// If serch action or search text fields any one of is missing then do nothing 
-        if ( Boolean( filterData?.search_student_field ) ^ Boolean( filterData?.search_student_action ) ) {
-            return;
+		if (Boolean(filterData?.search_student_field) ^ Boolean(filterData?.search_student_action)) {
+			return;
 		}
-		
+
 		setData(null);
 
 		requestData(
@@ -182,11 +182,7 @@ const Enrollment = () => {
 				<div ref={dateRef}>
 					<div className="admin-header-search-section">
 						<input
-							value={
-								selectedRange[0].startDate
-									? `${selectedRange[0].startDate.toLocaleDateString()} - ${selectedRange[0].endDate.toLocaleDateString()}`
-									: '-- -- ----' // Placeholder value when startDate is null
-							}
+							value={`${selectedRange[0].startDate.toLocaleDateString()} - ${selectedRange[0].endDate.toLocaleDateString()}`}
 							onClick={() => handleDateOpen()}
 							className="date-picker-input-custom"
 							type="text"
@@ -246,7 +242,7 @@ const Enrollment = () => {
 								onChange={(e) => updateFilter(e.target.name, e.target.value)}
 								value={filterValue || ""}
 							>
-								<option value="" >--Select--</option>
+								<option value="" >-- All --</option>
 								<option value="name" >Name</option>
 								<option value="email">Email</option>
 							</select>
@@ -280,11 +276,11 @@ const Enrollment = () => {
 						row.customer_img ?
 							(
 								<span dangerouslySetInnerHTML={{ __html: row.customer_img }}></span>
-							): (
+							) : (
 								<img src={defaultImage} alt="defaultimage" />
 							)
 					}
-					
+
 					<div className="action-section">
 						<p>{row.customer_name}</p>
 						<div className='action-btn'>
